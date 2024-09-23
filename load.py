@@ -11,7 +11,7 @@ start_time = time.time()
 logger.add("data/logs/file_{time}.log")
 caminho_db = 'data/dw/commodities_dw.db'
 caminho_arquivo = ('data/external/movimentacao_commodities.csv')
-commodities = ['CL=F', 'GC=F', 'SI=F'] # Petroleo Bruto, Ouro, Prata
+lst_commodities = ['CL=F', 'GC=F', 'SI=F'] # Petroleo Bruto, Ouro, Prata
 
 def cria_dw(df_integrado):
     os.makedirs('data/dw', exist_ok=True)
@@ -22,10 +22,13 @@ def cria_dw(df_integrado):
 
 
 if __name__ == "__main__":
-    dados_concatenados = buscar_todos_dados_comodities(commodities)
-    dados_tratados = tratar_dados_extraidos(dados_concatenados)
-    dados_movimentacao = processar_dados_movimentacao(caminho_arquivo)
-    dados_finais = integrar_dados(dados_tratados, dados_movimentacao)
-    logger.info(dados_finais)
-    cria_dw(dados_finais)
+    # Extract
+    df_concatenados = buscar_todos_dados_comodities(lst_commodities)
+    # Transform
+    df_tratados = tratar_dados_extraidos(df_concatenados)
+    df_movimentacao = processar_dados_movimentacao(caminho_arquivo)
+    df_finais = integrar_dados(df_tratados, df_movimentacao)
+    logger.info(df_finais)
+    # Load
+    cria_dw(df_finais)
     logger.info("--- %s seconds ---" % round((time.time() - start_time),2))
