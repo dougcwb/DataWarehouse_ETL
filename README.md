@@ -27,36 +27,36 @@ pip install yfinance
 
 ## Descrição dos Arquivos
 
-### `extract.py`
+### [extract.py](/extract.py)
 
 Extrai dados históricos das commodities utilizando a API do Yahoo Finance.
 
-### `transforme.py`
+### [transforme.py](/transforme.py)
 
 Trata os dados extraídos, processa dados de movimentação e integra os dados.
 
-### `load.py`
+### [load.py](/load.py)
 
 Carrega os dados integrados em um banco de dados SQLite.
 
 ## Executando o Projeto
 
 1. **Extração de Dados**:
-    - Execute `extract.py` para extrair dados históricos das commodities.
+    - Execute [extract.py](/extract.py) para extrair dados históricos das commodities.
 
     ```bash
     python extract.py
     ```
 
 2. **Transformação de Dados**:
-    - Execute `transforme.py` para tratar, processar e integrar os dados.
+    - Execute [transform.py](/transform.py) para tratar, processar e integrar os dados.
 
     ```bash
     python transforme.py
     ```
 
 3. **Carregamento de Dados**:
-    - Execute `load.py` para carregar os dados integrados no banco de dados SQLite.
+    - Execute [load.py](/load.py) para carregar os dados integrados no banco de dados SQLite.
 
     ```bash
     python load.py
@@ -64,7 +64,7 @@ Carrega os dados integrados em um banco de dados SQLite.
 
 ## Estrutura do Banco de Dados
 
-Os dados integrados são armazenados em um banco de dados SQLite no arquivo `data/dw/commodities_dw.db`, na tabela `commodities`.
+Os dados integrados são armazenados em um banco de dados SQLite no arquivo [data/dw/commodities_dw.db](/data/dw/commodities_dw.db), na tabela `commodities`.
 
 ## Consultas Úteis
 
@@ -111,5 +111,5 @@ graph TD
 
 ### Observações
 
-- Certifique-se de ter o arquivo `movimentacao_commodities.csv` no diretório `data/external/`.
-- Certifique-se de ter permissões para criar diretórios e arquivos no diretório `data/`.
+- Certifique-se de ter o arquivo [movimentacao_commodities.csv](/data/external/movimentacao_commodities.csv) no diretório `data/external/`.
+- Certifique-se de ter permissões para criar diretórios e arquivos no diretório [data/](/data/).
